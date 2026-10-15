@@ -1,4 +1,4 @@
-# TP2 --- Authentification sécurisée avec Spring Boot et JWT
+<img width="1020" height="574" alt="image" src="https://github.com/user-attachments/assets/c42ae13f-e0fd-4c8c-8c4f-4ef3cb314267" /># TP2 --- Authentification sécurisée avec Spring Boot et JWT
 
 ## 1. Présentation du projet
 
@@ -186,157 +186,16 @@ Remplacer `8080` par le port configuré dans `application.properties`,
 puis utiliser les chemins exacts définis dans `AuthController.java`.
 
 ### 8.1 Inscription --- Register
+<img width="1020" height="593" alt="image" src="https://github.com/user-attachments/assets/7eaaf897-829a-4a82-9451-17584f725ebb" />
 
--   Méthode HTTP : `POST`
--   URL : `http://localhost:8080/<endpoint-register>`
--   En-tête : `Content-Type: application/json`
--   Corps : sélectionner **Body → raw → JSON** et fournir les champs
-    attendus par `RegisterRequest`.
-
-Exemple indicatif --- adapter les noms de champs à la classe DTO :
-
-``` json
-{
-  "username": "hanane",
-  "password": "MotDePasseTest123"
-}
-```
-
-Résultat attendu : une réponse confirmant la création du compte.
-Vérifier également le code HTTP renvoyé et que l'utilisateur est bien
-enregistré en base.
-
-**Capture d'écran à ajouter :** réponse Postman de l'inscription
-réussie, avec la méthode, l'URL, le corps de la requête et le statut
-HTTP visibles.
-
-``` text
-![Inscription réussie](docs/screenshots/register-success.png)
-```
 
 ### 8.2 Connexion --- Login
 
--   Méthode HTTP : `POST`
--   URL : `http://localhost:8080/<endpoint-login>`
--   En-tête : `Content-Type: application/json`
--   Corps : fournir les identifiants attendus par `LoginRequest`.
+<img width="1020" height="574" alt="image" src="https://github.com/user-attachments/assets/5c503827-93f2-4854-81be-78311cfa669f" />
 
-Exemple indicatif :
 
-``` json
-{
-  "username": "hanane",
-  "password": "MotDePasseTest123"
-}
-```
 
-Résultat attendu : si les identifiants sont valides, l'API doit renvoyer
-une réponse d'authentification. Si le projet utilise JWT, cette réponse
-contient normalement un token. Le nom exact du champ dépend de
-`AuthResponse`.
-
-**Capture d'écran à ajouter :** réponse Postman du login réussi, en
-montrant le statut HTTP et le token retourné. Masquer le token avant de
-partager publiquement la capture.
-
-``` text
-![Connexion réussie](docs/screenshots/login-success.png)
-```
-
-### 8.3 Vérification d'une route protégée
-
-Si `UserController` expose une route protégée :
-
-1.  Copier le token obtenu à la connexion.
-2.  Envoyer une requête vers l'endpoint protégé.
-3.  Dans **Authorization**, choisir **Bearer Token**.
-4.  Coller le token et envoyer la requête.
-5.  Vérifier que la réponse correspond au comportement prévu par la
-    configuration de sécurité.
-
-Sans token ou avec un token invalide/expiré, une route protégée devrait
-normalement refuser la requête.
-
-**Capture d'écran à ajouter :** appel réussi d'une route protégée avec
-le token Bearer.
-
-``` text
-![Accès protégé](docs/screenshots/protected-route.png)
-```
-
-### 8.4 Tester les erreurs
-
-Pour compléter les tests, vérifier au minimum :
-
--   inscription avec des données manquantes ;
--   tentative d'inscription avec un utilisateur déjà existant, si cette
-    règle est implémentée ;
--   connexion avec un mauvais mot de passe ;
--   accès à une route protégée sans token ;
--   accès avec un token invalide ou expiré.
-
-Les codes HTTP et les messages exacts dépendent de la gestion des
-exceptions implémentée dans le projet.
-
-**Capture d'écran à ajouter :** exemple d'une réponse d'erreur attendue.
-
-``` text
-![Test d'erreur](docs/screenshots/auth-error.png)
-```
-
-## 9. Captures d'écran du projet
-
-Créer le dossier suivant à la racine du dépôt :
-
-``` text
-docs/
-└── screenshots/
-    ├── register-success.png
-    ├── login-success.png
-    ├── protected-route.png
-    ├── auth-error.png
-    └── application-startup.png
-```
-
-Captures recommandées :
-
-1.  **Démarrage de l'application** : logs Spring Boot montrant que le
-    serveur a démarré.
-2.  **Register réussi** : requête et réponse Postman.
-3.  **Login réussi** : réponse contenant le JWT, avec le token masqué si
-    le dépôt est public.
-4.  **Route protégée** : requête avec `Authorization: Bearer ...`.
-5.  **Accès refusé** : requête sans token ou avec un token invalide.
-6.  **Persistance en base de données** : utilisateur enregistré, sans
-    afficher de mot de passe ni de données sensibles.
-
-Pour afficher les images dans GitHub, utiliser les chemins relatifs
-ci-dessus et placer les fichiers image dans `docs/screenshots/`.
-
-## 10. Bonnes pratiques de sécurité
-
--   Ne jamais stocker les mots de passe en clair ; utiliser un encodeur
-    adapté, par exemple `BCryptPasswordEncoder`.
--   Ne jamais exposer le secret de signature JWT dans le code public.
--   Définir une durée de validité raisonnable pour les tokens.
--   Valider les données reçues par l'API.
--   Protéger toutes les routes qui ne sont pas explicitement publiques.
--   Éviter d'enregistrer le JWT ou les mots de passe dans les logs.
--   Ne pas committer de secrets ni de fichiers contenant des
-    identifiants réels.
-
-## 11. Limites et vérifications à effectuer
-
-Avant de considérer le projet comme terminé, confirmer dans le code :
-
--   les chemins exacts des endpoints register et login ;
--   les noms exacts des champs de `RegisterRequest` et `LoginRequest` ;
--   le format de la réponse définie par `AuthResponse` ;
--   les routes réellement publiques et protégées dans `SecurityConfig` ;
--   le comportement prévu en cas d'identifiants invalides ;
--   la configuration effective de la base de données et du secret JWT.
-
-## 12. Conclusion
+## 19. Conclusion
 
 Ce projet illustre la mise en place d'une API REST Spring Boot avec
 gestion des utilisateurs et authentification basée sur JWT. Il permet de
