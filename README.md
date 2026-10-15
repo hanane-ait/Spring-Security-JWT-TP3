@@ -1,4 +1,4 @@
-<img width="1020" height="574" alt="image" src="https://github.com/user-attachments/assets/c42ae13f-e0fd-4c8c-8c4f-4ef3cb314267" /># TP2 --- Authentification sécurisée avec Spring Boot et JWT
+# TP2 --- Authentification sécurisée avec Spring Boot et JWT
 
 ## 1. Présentation du projet
 
