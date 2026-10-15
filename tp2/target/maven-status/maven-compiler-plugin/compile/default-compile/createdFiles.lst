@@ -1,0 +1,8 @@
+org\example\tp2\service\CustomUserDetailsService.class
+org\example\tp2\entities\AppUser.class
+org\example\tp2\dto\LoginRequest.class
+org\example\tp2\dto\RegisterRequest.class
+org\example\tp2\dto\AuthResponse.class
+org\example\tp2\service\JwtService.class
+org\example\tp2\repository\UserRepository.class
+org\example\tp2\Tp2Application.class

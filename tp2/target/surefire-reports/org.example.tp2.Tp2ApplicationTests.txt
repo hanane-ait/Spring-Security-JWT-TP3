@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: org.example.tp2.Tp2ApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.944 s -- in org.example.tp2.Tp2ApplicationTests
